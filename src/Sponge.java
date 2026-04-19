@@ -29,11 +29,45 @@ public class Sponge {
     assertEqual(4, spongeCase("debí tirar más fotos"), "dEbÍ tIrAr mÁs fOtOs");
     assertEqual(5, spongeCase("E"), "e");
     assertEqual(6, spongeCase("e"), "e");
+    System.out.println(spongeCase("Who are YOU calling A Pinhead"));
   }
 
   // Implement your solution here!
-  public static String spongeCase(String sentence) {
-    return null;
+  public static String spongeCase(String x) {
+    int count = 0;
+    char cX;
+    String nS = "";
+    String cX2 = "";
+
+    for(int i = 0; i < x.length(); i++)
+    {
+      cX = x.charAt(i);
+      if(cX == ' ')
+      {
+        nS += " ";
+        if(count % 2 != 0)
+        {
+          count--;
+        }
+      }
+      else
+      {
+        count++;
+        cX2 += cX;
+        if(count % 2 == 0)
+        {
+          cX2 = cX2.toUpperCase();
+          nS += cX2;
+        }
+        else
+        { 
+          cX2 = cX2.toLowerCase();
+          nS += cX2;
+        }
+        cX2 = "";
+      }
+    }
+    return nS;
   }
 
 
@@ -45,4 +79,40 @@ public class Sponge {
       System.out.println("Test " + testNumber + " passed!");
     }
   }
+
+  /*
+  public static String spongeCase(String x)
+  {
+    int count = 1;
+    char cX;
+    String nS;
+    String cX2 = " ";
+
+    for(int i = 0; i < x.length(); i++)
+    {
+      cX = x.charAt(i);
+      if(cX == ' ')
+      {
+        count--;
+        nS += " ";
+      }
+      else
+      {
+        cX2 += cX;
+        if(count % 2 == 0)
+        {
+          cX2 = cX2.toUpperCase();;
+          nS += cX2;
+        }
+        else
+        {
+          nS += cX;
+        }
+        count++;
+        cX2 = " ";
+      }
+    }
+    return nS;
+  }
+  */
 }
